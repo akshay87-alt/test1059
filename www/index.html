@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="jquery-3.4.1.js"></script>
+    
+
+  </head>
+  <body>
+    <button type="button" name="button" id="location" >Click here !</button>
+<script type="text/javascript">
+    	$(document).ready(function(){
+
+    	 document.addEventListener("deviceready", onDeviceReady, false);
+
+    	 function onDeviceReady() {
+
+    	$("#location").click(function(){
+    		runLocation();
+
+    	 		});
+       
+    }
+
+    function runLocation(){
+    	navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+
+var onSuccess = function(position) {
+        alert('Latitude: '          + position.coords.latitude          + '\n' +
+              'Longitude: '         + position.coords.longitude         + '\n' +
+              'Altitude: '          + position.coords.altitude          + '\n' +
+              'Accuracy: '          + position.coords.accuracy          + '\n' +
+              'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+              'Heading: '           + position.coords.heading           + '\n' +
+              'Speed: '             + position.coords.speed             + '\n' +
+              'Timestamp: '         + position.timestamp                + '\n');
+    };
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+    	});
+
+
+    </script>
+  </body>
+</html>
